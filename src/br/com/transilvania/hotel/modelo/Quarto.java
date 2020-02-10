@@ -101,7 +101,7 @@ public class Quarto {
 		return "Classificação do quarto: " + this.tipo + "\nNumero do quarto: " + this.numeroQuarto
 				+ "\nPreço da diária: " + this.precoDiaria + "\nCor: " + this.cor + "\nQuantidade de banheiros: "
 				+ this.quantidadeBanheiros + "\nQuantidade de camas de casal: " + this.quantidadeCamaCasal
-				+ "\nQuantidade de camas de solteiro: " + this.quantidadeCamaSolteiro + "\nFumante: " + this.fumante;
+				+ "\nQuantidade de camas de solteiro: " + this.quantidadeCamaSolteiro + "\nFumante: " + getFumante();
 	}
 
 }

@@ -15,7 +15,7 @@ public class TesteReserva {
 		
 		System.out.println("-----------------------------");
 
-		Quarto quarto = new Quarto("Suite magestike master hiper luxo", 200, new BigDecimal(400.75), "azul neon", 10, 3,
+		Quarto quarto = new Quarto("Suite magestike master hiper luxo", 20, new BigDecimal(400.75), "azul neon", 10, 3,
 				0);
 		
 		System.out.println(quarto);
