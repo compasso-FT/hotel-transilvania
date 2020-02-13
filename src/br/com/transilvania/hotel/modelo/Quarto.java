@@ -10,7 +10,6 @@ public class Quarto {
 	private String dataSaida;
 	private BigDecimal precoDiaria;
 	private String cor;
-	private String fumante;
 	private int quantidadeBanheiros;
 	private int quantidadeCamaCasal;
 	private int quantidadeCamaSolteiro;
@@ -43,9 +42,6 @@ public class Quarto {
 	}
 
 	public boolean isEstaOcupado() {
-
-		// if reserva data entrada && reserva data saida ==
-		// return true;
 		return false;
 	}
 
@@ -65,8 +61,8 @@ public class Quarto {
 		this.cor = cor;
 	}
 
-	public String getFumante() {
-		if (this.numeroQuarto % 2 == 0) {
+	public static String QuartoParaFumante(int numeroQuarto) {
+		if (numeroQuarto % 2 == 0) {
 			return "não fumante";
 		}
 		return "fumante";
@@ -101,7 +97,7 @@ public class Quarto {
 		return "Classificação do quarto: " + this.tipo + "\nNumero do quarto: " + this.numeroQuarto
 				+ "\nPreço da diária: " + this.precoDiaria + "\nCor: " + this.cor + "\nQuantidade de banheiros: "
 				+ this.quantidadeBanheiros + "\nQuantidade de camas de casal: " + this.quantidadeCamaCasal
-				+ "\nQuantidade de camas de solteiro: " + this.quantidadeCamaSolteiro + "\nFumante: " + this.fumante;
+				+ "\nQuantidade de camas de solteiro: " + this.quantidadeCamaSolteiro + "\nFumante: "
+				+ QuartoParaFumante(getNumeroQuarto());
 	}
-
 }
