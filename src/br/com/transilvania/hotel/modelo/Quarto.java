@@ -13,6 +13,7 @@ public class Quarto {
 	private int quantidadeBanheiros;
 	private int quantidadeCamaCasal;
 	private int quantidadeCamaSolteiro;
+	private boolean fumante;
 
 	public Quarto(String tipo, int numeroQuarto, BigDecimal precoDiaria, String cor, int quantidadeBanheiros,
 			int quantidadeCamaCasal, int quantidadeCamaSolteiro) {
@@ -23,6 +24,11 @@ public class Quarto {
 		this.quantidadeBanheiros = quantidadeBanheiros;
 		this.quantidadeCamaCasal = quantidadeCamaCasal;
 		this.quantidadeCamaSolteiro = quantidadeCamaSolteiro;
+		this.quartoParaFumante();
+	}
+	
+	public Quarto(int numeroQuarto) {
+		this.numeroQuarto = numeroQuarto;
 	}
 
 	public String getTipo() {
@@ -61,13 +67,18 @@ public class Quarto {
 		this.cor = cor;
 	}
 
-	public static String QuartoParaFumante(int numeroQuarto) {
-		if (numeroQuarto % 2 == 0) {
-			return "não fumante";
+	public void quartoParaFumante() {
+		if (this.numeroQuarto % 2 == 0) {
+			this.fumante = false;
+		} else {
+			this.fumante = true;
 		}
-		return "fumante";
 	}
-
+	
+	public String mensagemFumante(boolean fumante){
+		return (fumante) ? "quarto para fumantes" : "quarto para não fumantes";
+	}
+	
 	public int getQuantidadeBanheiros() {
 		return quantidadeBanheiros;
 	}
@@ -97,7 +108,6 @@ public class Quarto {
 		return "Classificação do quarto: " + this.tipo + "\nNumero do quarto: " + this.numeroQuarto
 				+ "\nPreço da diária: " + this.precoDiaria + "\nCor: " + this.cor + "\nQuantidade de banheiros: "
 				+ this.quantidadeBanheiros + "\nQuantidade de camas de casal: " + this.quantidadeCamaCasal
-				+ "\nQuantidade de camas de solteiro: " + this.quantidadeCamaSolteiro + "\nFumante: "
-				+ QuartoParaFumante(getNumeroQuarto());
+				+ "\nQuantidade de camas de solteiro: " + this.quantidadeCamaSolteiro + "\nFumante: " + mensagemFumante(fumante);
 	}
 }
